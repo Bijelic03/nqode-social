@@ -1,26 +1,71 @@
 @import 'src/styles/settings.scss';
 
 .c-input {
-  border-radius: $space-l;
+  border-radius: $space-m;
   border: none;
   outline: none;
-
   margin: 0 $space-m;
-  padding: $space $space-l;
 
   background: $color-gray-100;
   font-size: $fs-base;
   color: $color-gray-900;
 
+  &--align-center {
+    text-align: center;
+
+    &::placeholder {
+      text-align: center;
+    }
+    ::-webkit-input-placeholder {
+      text-align: center;
+    }
+    :-moz-placeholder {
+      /* Firefox 18- */
+      text-align: center;
+    }
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      text-align: center;
+    }
+    :-ms-input-placeholder {
+      text-align: center;
+    }
+  }
+
+  &--align-left {
+    text-align: left;
+
+    &::placeholder {
+      text-align: left;
+    }
+    ::-webkit-input-placeholder {
+      text-align: left;
+    }
+    :-moz-placeholder {
+      /* Firefox 18- */
+      text-align: left;
+    }
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      text-align: left;
+    }
+    :-ms-input-placeholder {
+      text-align: left;
+    }
+  }
+
   &--small {
     width: $width-small;
+    padding: $space-s $space-s;
   }
 
   &--medium {
     width: $width-medium;
+    padding: $space-s $space-s;
   }
 
   &--large {
     width: $width-large;
+    padding: $space-s $space-m;
   }
 }
