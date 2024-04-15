@@ -1,0 +1,9 @@
+@import 'src/styles/settings.scss';
+
+.l-layout {
+  padding-top: $space-l;
+
+  &__content-container {
+    padding: 0 $space-l;
+  }
+}

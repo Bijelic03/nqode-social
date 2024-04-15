@@ -1,0 +1,26 @@
+@import 'src/styles/settings.scss';
+
+.c-input {
+  border-radius: $space-l;
+  border: none;
+  outline: none;
+
+  margin: 0 $space-m;
+  padding: $space $space-l;
+
+  background: $color-gray-100;
+  font-size: $fs-base;
+  color: $color-gray-900;
+
+  &--small {
+    width: $width-small;
+  }
+
+  &--medium {
+    width: $width-medium;
+  }
+
+  &--large {
+    width: $width-large;
+  }
+}

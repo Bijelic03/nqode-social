@@ -1,0 +1,47 @@
+@import 'src/styles/settings.scss';
+
+.l-navigation {
+  display: flex;
+  justify-content: center;
+
+  padding: $space-m 0;
+
+  background-color: $color-white;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    max-width: $width-large;
+    min-width: $width-medium;
+  }
+
+  &__logo {
+    width: $space-m;
+    height: $space-m;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__list-item {
+    margin: 0 $space-m;
+    width: $space-m;
+    height: $space-m;
+  }
+
+  &__icon {
+    fill: $color-primary;
+
+    &:hover {
+      transform: scale(1.25);
+      transition: transform 0.1s;
+    }
+  }
+}
