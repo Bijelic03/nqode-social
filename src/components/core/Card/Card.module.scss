@@ -16,7 +16,7 @@
   border-radius: $space-m;
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    0 6px 20px 0 rgba(0, 0, 0, 0.134);
 
   &--small {
     min-width: $width-small;
@@ -32,13 +32,26 @@
 
   &__title {
     margin-bottom: $space-m;
+
+    width: $width-large;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
   }
 
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: $width-large;
 
     &--row {

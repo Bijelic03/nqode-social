@@ -3,6 +3,7 @@ import Layout from 'src/components/Layout/Layout/Layout';
 import PostListComponent from 'src/components/PostListComponent/PostListComponent';
 import { Post } from 'src/models/Post';
 import { getAllPosts } from 'src/services/PostService';
+import PostForm from 'src/components/PostForm/PostForm';
 
 const HomePage = () => {
   const [posts, setPosts] = useState<Post[]>();
@@ -15,6 +16,7 @@ const HomePage = () => {
 
   return posts ? (
     <Layout>
+      <PostForm />
       <PostListComponent postList={posts} />
     </Layout>
   ) : (
