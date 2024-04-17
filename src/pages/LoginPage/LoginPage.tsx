@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthorizationLayout from 'src/components/Layout/AuthorizationLayout/AuthorizationLayout';
 import Button from 'src/components/core/Button/Button';
 import { User } from 'src/models/User';
-import { login, logout } from 'src/services/UserService';
+import { login } from 'src/services/UserService';
 
 const LoginPage = () => {
   const [user, setUser] = useState<User>({ username: '', password: '' });

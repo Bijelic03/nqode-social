@@ -6,11 +6,13 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 const App = () => {
   return (
-    <Routes>
+    <>
+      <Routes>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Routes>
       <PrivateRoute path='/' element={<HomePage />} />
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/register' element={<RegisterPage />} />
-    </Routes>
+    </>
   );
 };
 
