@@ -1,0 +1,26 @@
+@import 'src/styles/settings.scss';
+
+.l-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: $height-screen;
+  background-image: $background-login;
+  background-size: cover;
+  background-position: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    min-width: $width-small;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-bottom: $space-l;
+    min-width: $width-medium;
+    width: $space-l;
+  }
+}

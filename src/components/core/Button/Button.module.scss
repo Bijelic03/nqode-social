@@ -4,25 +4,42 @@
   padding: $space-xs $space-s;
   margin: $space-s;
 
-  background: $color-blue;
+  background: $color-primary;
   color: $color-white;
 
   font-size: $fs-base;
-  border: 1px solid $color-blue;
+  border: 2px solid $color-primary;
+  border-radius: $space-m;
   cursor: pointer;
 
-  &:hover {
-    background: $color-white;
-    color: $color-blue;
+  &--small {
+    min-width: $width-small;
+    padding: $space-s $space-s;
+  }
+
+  &--medium {
+    min-width: $width-medium;
+    padding: $space-s $space-s;
+  }
+
+  &--large {
+    min-width: $width-large;
+    padding: $space-s $space-m;
   }
 
   &--secondary {
     background: $color-white;
-    color: $color-blue;
+    color: $color-primary;
 
     &:hover {
-      background: $color-blue;
+      background: $color-primary;
       color: $color-white;
     }
+  }
+
+  &:hover {
+    transition: 0.2s;
+    background: $color-white;
+    color: $color-primary;
   }
 }

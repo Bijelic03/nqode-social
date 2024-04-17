@@ -1,7 +1,9 @@
 @import './general/reset.scss';
 @import './general/fonts.scss';
 @import './general/variables.scss';
+@import 'react-toastify/ReactToastify.css';
 
 body {
   background: $color-gray-100;
+  font-family: $font-family;
 }

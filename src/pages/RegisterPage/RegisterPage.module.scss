@@ -1,0 +1,33 @@
+@import 'src/styles/settings.scss';
+
+.c-register {
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__link {
+    font-weight: $fw-medium;
+    text-decoration: underline;
+  }
+
+  &__card-item {
+    margin: $space-s 0;
+  }
+
+  &__error-message {
+    color: $color-red;
+  }
+
+  &__actions-message {
+    margin-top: $space-m;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: $space-s;
+  }
+}

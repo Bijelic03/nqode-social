@@ -1,0 +1,48 @@
+@import 'src/styles/settings.scss';
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: min-content;
+  color: $color-primary;
+
+  padding: $space-m;
+  margin: $space-s;
+
+  background: $color-white;
+  border-radius: $space-m;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  &--small {
+    min-width: $width-small;
+  }
+
+  &--medium {
+    min-width: $width-medium;
+  }
+
+  &--large {
+    min-width: $width-large;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: $space-m;
+
+    &--row {
+      flex-direction: row;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+  }
+}
