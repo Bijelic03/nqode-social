@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
-import { Route, useNavigate } from 'react-router-dom';
+import { Route, RouteProps, Routes, useNavigate } from 'react-router-dom';
 
-interface PrivateRouteProps {
-  path: string;
-  element: React.ReactNode;
-}
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ path, element }) => {
+const PrivateRoute: React.FC<RouteProps> = ({ path, element }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +12,11 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ path, element }) => {
       navigate('/login');
     }
   }, [navigate]);
-  return <Route path={path} element={element} />;
+  return (
+    <Routes>
+      <Route path={path} element={element} />{' '}
+    </Routes>
+  );
 };
 
 export default PrivateRoute;
