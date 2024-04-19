@@ -10,6 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 const Input: React.FC<InputProps> = ({
   placeholder,
+  defaultValue,
   onChange,
   value,
   variant,
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
       onChange={onChange}
       type={type}
       name={name}
+      defaultValue={defaultValue}
     ></input>
   );
 };
