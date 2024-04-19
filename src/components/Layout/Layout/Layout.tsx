@@ -9,9 +9,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {' '}
       <Navigation />
       <div className={`${classes['l-layout']}`}>
-        <div>left</div>
+        <div></div>
         <div className={`${classes['l-layout__content-container']}`}>{children}</div>
-        <div>right</div>
+        <div></div>
       </div>
     </>
   );

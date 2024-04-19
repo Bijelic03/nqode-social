@@ -11,16 +11,6 @@
   border-radius: $space-m;
   cursor: pointer;
 
-  &--outline {
-    &--solid {
-      border: 2px solid $color-primary;
-    }
-
-    &--none {
-      border: none;
-    }
-  }
-
   &__icon {
     width: $fs-medium;
   }
@@ -69,5 +59,13 @@
       background: $color-primary;
       color: $color-white;
     }
+  }
+
+  &--outline--solid {
+    border: 2px solid $color-primary;
+  }
+
+  &--outline--none {
+    border: none;
   }
 }

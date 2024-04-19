@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Button.module.scss';
 
 interface ButtonProps {
-  color?: 'secondary' | 'primary';
+  color?: 'primary' | 'secondary';
   variant: string;
   label?: string;
   type?: 'submit' | 'reset' | 'button';
@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {Icon ? (
         <div className={`${classes['c-button__wrapper']}`}>
-          {<Icon className={`${classes['c-button__icon']}`} />}{' '}
+          {<Icon className={`${classes['c-button__icon']}`} />}
           {label ? <span className={`${classes['c-button__label']}`}>{label}</span> : <></>}
         </div>
       ) : (

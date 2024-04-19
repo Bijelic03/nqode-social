@@ -20,10 +20,10 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
             <h3>
               {post.author.name} {post.author.surname}
             </h3>
-            <p className={`${classes['c-post__username']}`}>{post.author.username}</p>
+            <span className={`${classes['c-post__username']}`}>{post.author.username}</span>
           </span>
         </div>
-        <p className={`${classes['c-post__text']}`}>{post.text}</p>
+        <span className={`${classes['c-post__text']}`}>{post.text}</span>
       </div>
       <div className={`${classes['c-post__image']}`}>
         {post.mediaPaths.map((path) => (
@@ -34,17 +34,12 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
         <hr className={`${classes['c-post__line']}`}></hr>
 
         <div className={`${classes['c-post__comment-button']}`}>
-          <Button
-            icon={ChatBubbleLeftIcon}
-            color='secondary'
-            variant='small'
-            label='Comments'
-          ></Button>
+          <Button icon={ChatBubbleLeftIcon} color='secondary' variant='small' label='Comments' />
         </div>
 
-        <div className={`${classes['c-post__leave-comment-container']}`}>
-          <Input variant='large' placeholder='Type comment'></Input>
-          <Button variant='rounded' icon={PaperAirplaneIcon}></Button>
+        <div className={`${classes['c-post__comment-container']}`}>
+          <Input variant='large' placeholder='Type comment' />
+          <Button variant='rounded' icon={PaperAirplaneIcon} />
         </div>
       </div>
     </Card>

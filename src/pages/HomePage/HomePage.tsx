@@ -5,11 +5,10 @@ import { Post } from 'src/models/Post';
 import { getAllPosts } from 'src/services/PostService';
 
 const HomePage = () => {
-  const [posts, setPosts] = useState<Post>();
+  const [posts, setPosts] = useState<Post[]>();
 
   useEffect(() => {
     getAllPosts().then((response) => {
-      console.log(response);
       setPosts(response);
     });
   }, []);
