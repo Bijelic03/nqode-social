@@ -10,7 +10,7 @@
   color: $color-primary;
 
   padding: $space-m;
-  margin: $space-s;
+  margin: $space-m;
 
   background: $color-white;
   border-radius: $space-m;
@@ -30,12 +30,16 @@
     min-width: $width-large;
   }
 
+  &__title {
+    margin-bottom: $space-m;
+  }
+
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-top: $space-m;
+    width: $width-large;
 
     &--row {
       flex-direction: row;

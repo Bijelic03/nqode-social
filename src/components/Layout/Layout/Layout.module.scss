@@ -1,9 +1,13 @@
 @import 'src/styles/settings.scss';
-
 .l-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding-top: $space-l;
+  margin: 0 $space;
 
   &__content-container {
+    min-width: $width-medium;
     padding: 0 $space-l;
   }
 }
