@@ -1,0 +1,52 @@
+@import 'src/styles/settings.scss';
+
+.c-post-form {
+  width: $width-large;
+
+  &__header {
+    margin-left: $space-s;
+    margin-bottom: $space-s;
+  }
+
+  &__icon {
+    fill: $color-primary;
+    width: $space-m;
+  }
+
+  &__media-upload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    max-width: $width-medium;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__textarea {
+    min-height: $space-l;
+    min-width: $width-large;
+    padding: $space-s;
+
+    font-family: $font-family;
+    resize: vertical;
+    border-color: $color-gray-100;
+    border-radius: $space-s;
+    font-size: large;
+
+    &:focus {
+      border-color: $color-gray-900;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0 $space-m;
+  }
+}
