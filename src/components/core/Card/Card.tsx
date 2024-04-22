@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ children, title, direction = 'column', variant }) => {
   return (
     <div className={`${classes['c-card']}  ${classes[`c-card--${variant}`]}`}>
-      <h2>{title}</h2>
+      {title && <h2 className={`${classes['c-card__title']}`}>{title}</h2>}
       <div className={`${classes['c-card__content']} ${classes[`c-card__content--${direction}`]}`}>
         {children}
       </div>

@@ -1,5 +1,5 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import { refreshAccessToken } from 'src/services/AuthorizationService';
+import { logout, refreshAccessToken } from 'src/services/AuthorizationService';
 
 interface AxiosRequestConfigWithRetry extends AxiosRequestConfig {
   _retry?: boolean;

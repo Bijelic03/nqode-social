@@ -1,0 +1,51 @@
+@import 'src/styles/settings.scss';
+
+.c-post {
+  &__info {
+    width: $width-large;
+    text-align: left;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: $space-m;
+  }
+
+  &__line {
+    color: $color-gray-100;
+    margin: $space-m $space-s 0 0;
+  }
+
+  &__profile-icon {
+    width: $space-l;
+  }
+
+  &__username {
+    font-style: italic;
+    color: $color-gray-500;
+  }
+
+  &__text {
+    margin: 0 0 $space-m $space-m;
+  }
+
+  &__actions-container {
+    width: $width-large;
+  }
+
+  &__comment-button {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__comment-container {
+    display: flex;
+
+    margin-top: $space-s;
+
+    background: $color-gray-100;
+    border-radius: $space-m;
+  }
+}

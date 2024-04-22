@@ -8,9 +8,27 @@
   color: $color-white;
 
   font-size: $fs-base;
-  border: 2px solid $color-primary;
   border-radius: $space-m;
   cursor: pointer;
+
+  &__icon {
+    width: $fs-medium;
+  }
+
+  &__label {
+    margin-left: $space-s;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--round {
+    min-width: 0;
+    padding: 0 $space-l;
+  }
 
   &--small {
     min-width: $width-small;
@@ -27,6 +45,12 @@
     padding: $space-s $space-m;
   }
 
+  &:hover {
+    transition: 0.2s;
+    background: $color-white;
+    color: $color-primary;
+  }
+
   &--secondary {
     background: $color-white;
     color: $color-primary;
@@ -37,9 +61,11 @@
     }
   }
 
-  &:hover {
-    transition: 0.2s;
-    background: $color-white;
-    color: $color-primary;
+  &--outline--solid {
+    border: 2px solid $color-primary;
+  }
+
+  &--outline--none {
+    border: none;
   }
 }
