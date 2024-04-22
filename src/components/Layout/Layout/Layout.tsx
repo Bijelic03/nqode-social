@@ -6,7 +6,6 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      {' '}
       <Navigation />
       <div className={`${classes['l-layout']}`}>
         <div className={`${classes['l-side-panel']}`}></div>
