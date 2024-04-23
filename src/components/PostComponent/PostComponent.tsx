@@ -5,6 +5,7 @@ import classes from './PostComponent.module.scss';
 import Button from '../core/Button/Button';
 import { ChatBubbleLeftIcon, PaperAirplaneIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import Input from '../core/Input/Input';
+import { Link } from 'react-router-dom';
 
 interface PostComponentProps {
   post: Post;
@@ -14,7 +15,7 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
   return (
     <Card variant='large'>
       <div className={`${classes['c-post__info']}`}>
-        <div className={`${classes['c-post__user-info']}`}>
+        <Link to={`/profile/${post.author.username}`} className={`${classes['c-post__user-info']}`}>
           <UserCircleIcon className={`${classes['c-post__profile-icon']}`} />
           <span>
             <h3>
@@ -22,7 +23,7 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
             </h3>
             <span className={`${classes['c-post__username']}`}>{post.author.username}</span>
           </span>
-        </div>
+        </Link>
         <span className={`${classes['c-post__text']}`}>{post.text}</span>
       </div>
       <div className={`${classes['c-post__image']}`}>

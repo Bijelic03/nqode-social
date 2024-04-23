@@ -4,7 +4,7 @@ import classes from './Card.module.scss';
 interface CardProps {
   direction?: 'row' | 'column';
   title?: string;
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
   variant: 'small' | 'medium' | 'large';
   align?: 'left' | 'center' | 'right';
 }

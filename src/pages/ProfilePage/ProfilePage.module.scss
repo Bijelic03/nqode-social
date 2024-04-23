@@ -1,0 +1,65 @@
+@import 'src/styles/settings.scss';
+
+.c-profile {
+  &__background {
+    display: flex;
+
+    width: $width-large;
+    height: $height-medium;
+    background-image: $background-login;
+    background-position: center;
+    border-radius: $space-m $space-m 0 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -$height-small;
+    min-width: $width-medium;
+  }
+
+  &__picture {
+    width: $p-picture-medium;
+    height: $p-picture-medium;
+
+    background: $background-login;
+    border-style: solid;
+    border-radius: $border-circle;
+    border-color: $color-white;
+    border-width: 5px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: $space-m;
+  }
+
+  &__edit-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin: $space-m 0;
+
+    width: $width-large;
+  }
+
+  &__edit-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: $space-m;
+
+    width: $width-large;
+  }
+
+  &__username {
+    margin: $space-s 0;
+  }
+}

@@ -10,8 +10,12 @@ import {
   UserGroupIcon,
   UserIcon
 } from '@heroicons/react/24/solid';
+import { User } from 'src/models/User';
 
 const Navigation = () => {
+  const userString = localStorage.getItem('user');
+  const user = userString ? JSON.parse(userString) : null;
+
   return (
     <nav className={`${classes['l-navigation']}`}>
       <div className={`${classes['l-navigation__container']}`}>
@@ -26,7 +30,7 @@ const Navigation = () => {
             </Link>
           </li>
           <li className={`${classes['l-navigation__list-item']}`}>
-            <Link to={'/profile'}>
+            <Link to={`/profile/${user.username}`}>
               <UserIcon className={`${classes['l-navigation__icon']}`} />
             </Link>
           </li>

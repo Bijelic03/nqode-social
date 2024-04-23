@@ -16,3 +16,7 @@ export const register = async (user: User) => {
 export const logout = () => {
   localStorage.clear();
 };
+
+export const update = async (user: User) => {
+  return (await axios.put(`/api/v1/users/${user.id}`, user)).data;
+};
