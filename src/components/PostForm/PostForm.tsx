@@ -5,45 +5,55 @@ import Button from 'components/core/Button/Button';
 import { createPost } from 'src/services/PostService';
 import { Post, PostCreate } from 'src/models/Post';
 import Card from '../core/Card/Card';
+import { toast } from 'react-toastify';
 
 const PostForm = () => {
   const userString = localStorage.getItem('user');
   const user = userString ? JSON.parse(userString) : null;
-  const [file, setFile] = useState<File | null>(null);
-  const [post, setPost] = useState<PostCreate>();
-  const [text, setText] = useState<string>('');
+  const [post, setPost] = useState<PostCreate>({ authorId: user.id, text: '', file: null });
+
+  const notify = () =>
+    toast.error(`Can't upload empty post!`, {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: 'light'
+    });
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFile = e.target.files[0];
-      setFile(newFile);
-      setPost({
-        text: text,
-        file: file,
-        authorId: user.id
-      });
-    }
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (post) {
-      createPost(post);
+      setPost((prevPost) => ({
+        ...prevPost,
+        file: newFile
+      }));
     }
   };
 
   const handleChangeText = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
-    setPost({
-      text: text,
-      file: file,
-      authorId: user.id
-    });
+    const newText = event.target.value;
+    setPost((prevPost) => ({
+      ...prevPost,
+      text: newText
+    }));
   };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log(post);
+    post.file || post.text ? createPost(post) : notify();
+    setPost({ authorId: user.id, text: '', file: null });
+  };
+
   return (
     <Card align='left' title='Create Post' variant='large'>
       <form onSubmit={handleSubmit} className={`${classes['c-post-form']}`}>
         <textarea
+          value={post.text}
           className={`${classes['c-post-form__textarea']}`}
           onChange={handleChangeText}
           placeholder='Whats on your mind?'
