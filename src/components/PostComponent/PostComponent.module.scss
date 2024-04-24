@@ -36,6 +36,9 @@
     width: $width-large;
   }
 
+  &__image {
+    max-height: 500px;
+  }
   &__comment-button {
     display: flex;
     flex-direction: row;

@@ -32,9 +32,14 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
         </Link>
         <span className={`${classes['c-post__text']}`}>{post.text}</span>
       </div>
-      <div className={`${classes['c-post__image']}`}>
+      <div>
         {post.mediaPaths?.map((path) => (
-          <img key={path} src={import.meta.env.VITE_MINIO_PATH + path} alt='' />
+          <img
+            className={`${classes['c-post__image']}`}
+            key={path}
+            src={import.meta.env.VITE_MINIO_PATH + path}
+            alt=''
+          />
         ))}
       </div>
       <div className={`${classes['c-post__actions-container']}`}>
