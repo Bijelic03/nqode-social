@@ -1,0 +1,67 @@
+@import 'src/styles/settings.scss';
+
+.c-comment {
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: $space-s;
+    padding: $space-s;
+
+    border-radius: $space-s;
+    background: $color-gray-100;
+  }
+
+  &__profile-icon {
+    width: $space-m;
+  }
+
+  &__username {
+    font-style: italic;
+    color: $color-gray-500;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__line {
+    margin: $space-s $space-m 0 0;
+  }
+
+  &__text {
+    margin-left: $space-m;
+  }
+
+  &__replies-container {
+    margin-left: $space-m;
+  }
+
+  &__reply-actions {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-top: $space-s;
+
+    width: $width-medium;
+
+    font-size: $fs-small;
+    font-weight: $fw-medium;
+    font-style: italic;
+    color: $color-primary;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__leave-comment-container {
+    display: flex;
+
+    margin-top: $space-s;
+
+    background: $color-gray-100;
+    border-radius: $space-m;
+  }
+}

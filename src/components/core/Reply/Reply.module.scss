@@ -1,0 +1,33 @@
+@import 'src/styles/settings.scss';
+
+.c-reply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: $width-large;
+  height: $height-xs;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    width: $width-large;
+
+    border-radius: $space-m;
+  }
+
+  &__icon {
+    margin-right: $space-s;
+
+    width: $space-m;
+
+    cursor: pointer;
+  }
+
+  &--white {
+    background: $color-white;
+  }
+
+  &--gray {
+    background: $color-gray-100;
+  }
+}

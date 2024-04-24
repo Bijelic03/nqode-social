@@ -7,6 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant: 'small' | 'medium' | 'large';
   align?: 'center' | 'left';
   className?: string;
+  color?: 'white' | 'gray';
 }
 const Input: React.FC<InputProps> = ({
   placeholder,
@@ -17,12 +18,13 @@ const Input: React.FC<InputProps> = ({
   className,
   align = 'left',
   type,
-  name
+  name,
+  color = 'gray'
 }) => {
   return (
     <input
       value={value}
-      className={`${classes['c-input']} ${classes[`c-input--${variant}`]} ${className} ${classes[`c-input--align-${align}`]}`}
+      className={`${classes['c-input']} ${classes[`c-input--${color}`]} ${classes[`c-input--${variant}`]} ${className} ${classes[`c-input--align-${align}`]}`}
       placeholder={placeholder}
       onChange={onChange}
       type={type}

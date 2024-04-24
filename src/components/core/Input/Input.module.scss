@@ -5,7 +5,6 @@
   border: none;
   outline: none;
 
-  background: $color-gray-100;
   font-size: $fs-base;
   color: $color-gray-900;
 
@@ -51,6 +50,14 @@
     :-ms-input-placeholder {
       text-align: left;
     }
+  }
+
+  &--gray {
+    background: $color-gray-100;
+  }
+
+  &--white {
+    background: $color-white;
   }
 
   &--small {

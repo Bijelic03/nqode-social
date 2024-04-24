@@ -45,6 +45,7 @@ const Navigation = () => {
           <div className={`${classes['l-navigation__search-results']}`}>
             {searchResoults.map((filteredUser) => (
               <Link
+                key={filteredUser.id}
                 onClick={handleLinkClick}
                 to={`/profile/${filteredUser.username}`}
                 className={`${classes['l-navigation__search-item']}`}
