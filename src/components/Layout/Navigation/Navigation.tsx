@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../../core/Input/Input';
 import classes from './Navigation.module.scss';
 import { Link } from 'react-router-dom';
@@ -11,18 +11,46 @@ import {
   UserIcon
 } from '@heroicons/react/24/solid';
 import { User } from 'src/models/User';
+import { searchUsers } from 'src/services/UserService';
 
 const Navigation = () => {
+  const [searchResoults, setSearchResoults] = useState<User[]>([]);
+
   const userString = localStorage.getItem('user');
   const user = userString ? JSON.parse(userString) : null;
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value) {
+      searchUsers(e.target.value).then((response) => {
+        setSearchResoults(response);
+      });
+    } else {
+      setSearchResoults([]);
+    }
+  };
+  const handleLinkClick = () => {
+    setSearchResoults([]);
+  };
   return (
     <nav className={`${classes['l-navigation']}`}>
       <div className={`${classes['l-navigation__container']}`}>
         <Link to={'/'}>
           <img src={logo} className={`${classes['l-navigation__logo']}`}></img>
         </Link>
-        <Input placeholder='Start typing to search..' variant='large' />
+        <div className={`${classes['l-navigation__search-wrapper']}`}>
+          <Input onChange={handleSearch} placeholder='Start typing to search..' variant='large' />
+          <div className={`${classes['l-navigation__search-results']}`}>
+            {searchResoults.map((filteredUser) => (
+              <Link
+                onClick={handleLinkClick}
+                to={`/profile/${filteredUser.username}`}
+                className={`${classes['l-navigation__search-item']}`}
+              >
+                {filteredUser.username}
+              </Link>
+            ))}
+          </div>
+        </div>
         <ul className={`${classes['l-navigation__list']}`}>
           <li className={`${classes['l-navigation__list-item']}`}>
             <Link to={'/'}>

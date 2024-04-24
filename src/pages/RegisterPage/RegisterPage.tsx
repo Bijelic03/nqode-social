@@ -4,12 +4,12 @@ import AuthorizationLayout from 'src/components/Layout/AuthorizationLayout/Autho
 import Input from 'src/components/core/Input/Input';
 import classes from './RegisterPage.module.scss';
 import Button from 'src/components/core/Button/Button';
-import { User } from 'src/models/User';
+import { CreateUser, User } from 'src/models/User';
 import { register } from 'src/services/UserService';
 import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
-  const [user, setUser] = useState<User>({
+  const [user, setUser] = useState<CreateUser>({
     username: '',
     password: '',
     email: '',
