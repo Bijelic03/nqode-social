@@ -3,15 +3,17 @@ import classes from './PostForm.module.scss';
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import Button from 'components/core/Button/Button';
 import { createPost } from 'src/services/PostService';
-import { Post, PostCreate } from 'src/models/Post';
+import { PostCreate } from 'src/models/Post';
 import Card from '../core/Card/Card';
 import { toast } from 'react-toastify';
+import { useRecoilState } from 'recoil';
+import { postsState } from '../../state/atom';
 
 const PostForm = () => {
   const userString = localStorage.getItem('user');
   const user = userString ? JSON.parse(userString) : null;
   const [post, setPost] = useState<PostCreate>({ authorId: user.id, text: '', file: null });
-
+  const [posts, setPosts] = useRecoilState(postsState);
   const notify = () =>
     toast.error(`Can't upload empty post!`, {
       position: 'bottom-right',
@@ -44,8 +46,13 @@ const PostForm = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(post);
-    post.file || post.text ? createPost(post) : notify();
+    if (post.file || post.text) {
+      createPost(post).then((response) => {
+        setPosts([response.data, ...posts]);
+      });
+    } else {
+      notify();
+    }
     setPost({ authorId: user.id, text: '', file: null });
   };
 
