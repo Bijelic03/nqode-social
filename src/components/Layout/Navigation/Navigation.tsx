@@ -19,6 +19,9 @@ const Navigation = () => {
   const userString = localStorage.getItem('user');
   const user = userString ? JSON.parse(userString) : null;
 
+  const handleLogout = () => {
+    localStorage.clear();
+  };
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value) {
       searchUsers(e.target.value).then((response) => {
@@ -74,6 +77,15 @@ const Navigation = () => {
           <li className={`${classes['l-navigation__list-item']}`}>
             <Link to={'/friends'}>
               <UserGroupIcon className={`${classes['l-navigation__icon']}`} />
+            </Link>
+          </li>
+          <li className={`${classes['l-navigation__list-item']}`}>
+            <Link
+              className={`${classes['l-navigation__logout']}`}
+              onClick={handleLogout}
+              to={'/login'}
+            >
+              Logout
             </Link>
           </li>
         </ul>

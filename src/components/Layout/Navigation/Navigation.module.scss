@@ -60,7 +60,10 @@
   }
 
   &__list-item {
+    align-content: center;
+
     margin: 0 $space-m;
+
     width: $space-m;
     height: $space-m;
   }
@@ -72,5 +75,10 @@
       transform: scale(1.25);
       transition: transform 0.1s;
     }
+  }
+
+  &__logout {
+    font-weight: $fw-medium;
+    color: $color-primary;
   }
 }
