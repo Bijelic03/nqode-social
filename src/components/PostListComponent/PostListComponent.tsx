@@ -1,16 +1,16 @@
 import React from 'react';
-import { Post } from 'src/models/Post';
 import PostComponent from '../PostComponent/PostComponent';
 import classes from './PostListComponent.module.scss';
+import { postsState } from '../../state/atom';
+import { useRecoilValue } from 'recoil';
 
-interface PostListComponentProps {
-  postList: Post[];
-}
-const PostListComponent: React.FC<PostListComponentProps> = ({ postList }) => {
+const PostListComponent = () => {
+  const postsList = useRecoilValue(postsState);
+
   return (
     <div>
-      {postList.map((post) => (
-        <div className={`${classes['c-post-list__wrapper']}`}>
+      {postsList.map((post) => (
+        <div key={post.id} className={`${classes['c-post-list__wrapper']}`}>
           <PostComponent post={post} />
         </div>
       ))}

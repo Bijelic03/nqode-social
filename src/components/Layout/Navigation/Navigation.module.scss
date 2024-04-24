@@ -18,6 +18,34 @@
     min-width: $width-medium;
   }
 
+  &__search-wrapper {
+    position: relative;
+  }
+
+  &__search-results {
+    position: absolute;
+
+    width: $width-large;
+    background-color: #fff;
+    box-shadow: 0 2px 4px $color-shadow;
+    border-radius: $space-xxs;
+
+    z-index: 1;
+  }
+
+  &__search-item {
+    display: block;
+
+    padding: $space-s;
+
+    color: $color-primary;
+
+    cursor: pointer;
+    &:hover {
+      background-color: $color-gray-100;
+    }
+  }
+
   &__logo {
     width: $space-m;
     height: $space-m;

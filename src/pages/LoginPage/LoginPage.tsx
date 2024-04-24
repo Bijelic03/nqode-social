@@ -4,11 +4,11 @@ import classes from './LoginPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthorizationLayout from 'src/components/Layout/AuthorizationLayout/AuthorizationLayout';
 import Button from 'src/components/core/Button/Button';
-import { User } from 'src/models/User';
+import { CreateUser, User } from 'src/models/User';
 import { getUser, login } from 'src/services/UserService';
 
 const LoginPage = () => {
-  const [user, setUser] = useState<User>({ username: '', password: '' });
+  const [user, setUser] = useState<CreateUser>({ username: '', password: '' });
 
   const navigate = useNavigate();
 
