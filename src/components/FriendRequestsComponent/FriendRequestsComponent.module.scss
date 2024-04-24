@@ -1,0 +1,41 @@
+@import 'src/styles/settings.scss';
+
+.c-requests {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: $space-s $space-xs;
+    margin: $space-xs 0;
+
+    background-color: $color-gray-100;
+    width: $width-large;
+    border-radius: $space-s;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    color: $color-primary;
+  }
+
+  &__username {
+    font-style: italic;
+    color: $color-gray-900;
+  }
+
+  &__name {
+    font-size: $fs-medium;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: $width-large;
+  }
+}

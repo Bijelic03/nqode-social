@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Button.module.scss';
 
 interface ButtonProps {
+  disabled?: boolean;
   color?: 'primary' | 'secondary';
   variant: string;
   label?: string;

@@ -10,7 +10,7 @@ const PostListComponent: React.FC<PostListComponentProps> = ({ postList }) => {
   return (
     <div>
       {postList.map((post) => (
-        <div className={`${classes['c-post-list__wrapper']}`}>
+        <div key={post.id} className={`${classes['c-post-list__wrapper']}`}>
           <PostComponent post={post} />
         </div>
       ))}

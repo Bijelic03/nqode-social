@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Layout from 'src/components/Layout/Layout/Layout';
 import Card from 'src/components/core/Card/Card';
 import { User } from 'src/models/User';
-import { getUser, update } from 'src/services/UserService';
+import { getFriendship, getUser, sendFriendRequest, update } from 'src/services/UserService';
 import classes from './ProfilePage.module.scss';
 import Button from 'src/components/core/Button/Button';
 import Input from 'src/components/core/Input/Input';
@@ -13,7 +13,8 @@ const ProfilePage = () => {
   const [showEdit, setShowEdit] = useState(false);
   const [nameEdit, setNameEdit] = useState('');
   const [surnameEdit, setSurnameEdit] = useState('');
-
+  const [friendshipLabel, setFriendshipLabel] = useState('');
+  const [friendshipButtonStatus, setFriendshipButtonStatus] = useState(false);
   const { username } = useParams<{ username: string }>();
 
   const logedUserString = localStorage.getItem('user');
@@ -30,6 +31,36 @@ const ProfilePage = () => {
   const handleShowEdit = useCallback(() => {
     setShowEdit(!showEdit);
   }, [showEdit]);
+
+  useEffect(() => {
+    if (user) {
+      getFriendship(logedUser.id, user!.id)
+        .then((response) => {
+          if (response.status == 'ACCEPTED') {
+            setFriendshipButtonStatus(false);
+            setFriendshipLabel('Already friends');
+          } else if (response.status == 'PENDING') {
+            setFriendshipButtonStatus(false);
+            setFriendshipLabel('Pending');
+          }
+        })
+        .catch(() => {
+          setFriendshipButtonStatus(true);
+          setFriendshipLabel('Add friend');
+        });
+    }
+  }, [logedUser.id, user]);
+
+  const handleFriendship = (friendId: number) => {
+    console.log(friendshipButtonStatus);
+    if (friendshipButtonStatus) {
+      console.log(friendshipButtonStatus);
+      sendFriendRequest(logedUser.id, friendId).then(() => {
+        setFriendshipLabel('Pending');
+        setFriendshipButtonStatus(false);
+      });
+    }
+  };
 
   const handleEditSubmit = useCallback(() => {
     if (nameEdit && surnameEdit) {
@@ -91,7 +122,11 @@ const ProfilePage = () => {
                   variant='small'
                 />
               ) : (
-                <Button variant='small' label='Add friend' />
+                <Button
+                  onClick={() => handleFriendship(user.id)}
+                  variant='small'
+                  label={friendshipLabel}
+                />
               )}
               {showEdit && <Button onClick={handleEditSubmit} variant='small' label='save' />}
             </div>
